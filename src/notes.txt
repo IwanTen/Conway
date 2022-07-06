@@ -1,0 +1,12 @@
+CONWAY GAME OF LIFE SIMULATOR:
+
+0 = dead;
+1 = alive;
+
+RULES:
+1 = underpopulation:LIVE cells with less than 2 live neighbors => DIE
+2 = live on: LIVE cells with 2 - 3 live neighbors LIVE;
+3 = overpopulation: LIVE cells with GREATER than 3 neighbors => DIE;
+4 = reproduction: DEAD cells with exactly 3 neighbors => LIVE (reborn);
+
+TODO:
