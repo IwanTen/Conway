@@ -15,11 +15,13 @@ function App() {
 
   return (
     <div className="app">
+      <h1 className="watermark">CONWAY</h1>
       <Header
         clearGrid={() => {
           setInitialized(false);
         }}
         toggleSimulation={() => setIsRunning(!isRunning)}
+        isRunning={isRunning}
         setCellSize={(s: number) => setCellSize(s)}
         setSimSpeed={(s: number) => setSimSpeed(s)}
         defaultSpeed={DEFAULT_SPEED}
@@ -30,6 +32,7 @@ function App() {
           cellSize={cellSize}
           speed={simSpeed}
           isRunning={isRunning}
+          stopRunning={() => setIsRunning(false)}
           init={initialized}
           setInit={setInitialized}
         />

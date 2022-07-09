@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 
 type Props = {
   toggleSimulation: () => void;
+  isRunning: boolean;
   clearGrid: () => void;
   setCellSize: (s: number) => void;
   setSimSpeed: (s: number) => void;
@@ -32,10 +33,10 @@ const Header = ({
   setSimSpeed,
   defaultSize,
   defaultSpeed,
+  isRunning,
 }: Props) => {
   const [size, setSize] = useState(defaultSize);
   const [speed, setSpeed] = useState(defaultSpeed);
-  const [running, setRunning] = useState(false);
 
   useEffect(() => {
     if (size) setCellSize(size);
@@ -51,27 +52,27 @@ const Header = ({
         <button
           className=" header__button  header__button--simulate"
           onClick={() => {
-            setRunning(!running);
             toggleSimulation();
           }}
         >
-          {running ? (
+          {isRunning ? (
             <>
-              <MdStop size={30} /> Stop Simulation
+              <MdStop size={25} /> Stop Simulation
             </>
           ) : (
             <>
-              <MdPlayArrow size={30} /> Start Simulation
+              <MdPlayArrow size={25} /> Start Simulation
             </>
           )}
         </button>
         <button
           className=" header__button"
           onClick={() => {
+            if (isRunning) toggleSimulation();
             clearGrid();
           }}
         >
-          <MdClose size={25} />
+          <MdClose size={20} />
           clear grid
         </button>
       </div>

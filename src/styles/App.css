@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html,
 body {
-  background: #212121;
+  background: #360033;
+  background: -webkit-gradient(linear, left top, right top, from(#360033), to(#0b8793));
+  background: linear-gradient(to right, #360033, #0b8793);
 }
 
 * {
@@ -22,7 +24,9 @@ body {
       -ms-flex-flow: column;
           flex-flow: column;
   height: 100vh;
-  background: #212121;
+  background: #360033;
+  background: -webkit-gradient(linear, left top, right top, from(#360033), to(#0b8793));
+  background: linear-gradient(to right, #360033, #0b8793);
 }
 
 .header {
@@ -75,16 +79,15 @@ body {
 }
 
 .header__button--simulate {
-  padding: 0px 10px;
+  padding: 3px 10px;
   border-radius: 100vmax;
-  background: #ba68c8;
+  background: #db8434;
 }
 
 .header__button:hover {
-  background-color: #6e85b2;
-  color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  opacity: 0.6;
 }
 
 .button-wrapper {
@@ -100,7 +103,6 @@ body {
 }
 
 .content-wrapper {
-  background: #212121;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -144,16 +146,16 @@ body {
   height: 8px;
   top: -4px;
   border-radius: 2px;
-  background: #717070;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .slider--track-0 {
-  background: #ba68c8;
+  background: #fff;
 }
 
 .slider--thumb {
   cursor: pointer;
-  background: #ba68c8;
+  background: #fff;
   top: -10px;
   width: 20px;
   height: 20px;
@@ -176,8 +178,10 @@ body {
   width: -moz-max-content;
   width: max-content;
   border-radius: 4px;
-  border: 3px solid #4d4d4d;
+  border: 3px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   -webkit-box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12), 0px 5px 5px -3px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12), 0px 5px 5px -3px rgba(0, 0, 0, 0.2);
 }
@@ -189,21 +193,30 @@ body {
 .node {
   width: 10px;
   aspect-ratio: 1;
-  border: 1px solid #4d4d4d;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: inline-block;
 }
 
 .node--alive {
-  background-color: #ce93d8;
+  background-color: #fff;
   -webkit-transition: 0.1s;
   transition: 0.1s;
 }
 
 .node:hover {
-  background: #ba68c8;
+  background: #db8434;
   opacity: 0.5;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+}
+
+.watermark {
+  position: fixed;
+  width: 100vw;
+  top: 48vh;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14vw;
 }
 
 @media screen and (max-width: 600px) {
@@ -213,6 +226,10 @@ body {
   #gridContainer {
     width: 90%;
     height: 90%;
+  }
+  .watermark {
+    font-size: 4rem;
+    top: 55vh;
   }
 }
 /*# sourceMappingURL=App.css.map */

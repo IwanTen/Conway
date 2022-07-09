@@ -11,15 +11,22 @@ type gridProps = {
   cellSize: number;
   speed: number;
   isRunning: boolean;
+  stopRunning: () => void;
   init: boolean;
   setInit: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Grid = ({ isRunning, cellSize, speed, init, setInit }: gridProps) => {
+const Grid = ({
+  isRunning,
+  stopRunning,
+  cellSize,
+  speed,
+  init,
+  setInit,
+}: gridProps) => {
   const [grid, setGrid] = useState<any[]>(
     new Array(20).fill(false).map((row) => new Array(20).fill(false))
   );
-  const [counter, setCounter] = useState(0);
   const [mouseDown, setMouseDown] = useState(false);
   const handleResize = useCallback(() => {
     setGridSize();
@@ -48,7 +55,6 @@ const Grid = ({ isRunning, cellSize, speed, init, setInit }: gridProps) => {
     let interval: any = null;
     if (isRunning) {
       interval = setInterval(() => {
-        setCounter((count) => count + 1);
         runSimulation();
       }, speed);
     } else if (!isRunning) {
@@ -74,6 +80,7 @@ const Grid = ({ isRunning, cellSize, speed, init, setInit }: gridProps) => {
   }, [init]);
 
   const setGridSize = () => {
+    stopRunning();
     const container = document.getElementById("gridContainer");
     if (container) {
       let numRows = Math.floor(container?.clientHeight / cellSize);
